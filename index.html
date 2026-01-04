@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arenda Tools – Құрылыс құралдарын жалға беру</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+        }
+
+        header {
+            background: linear-gradient(45deg, #ff7b00, #ffbb00);
+            padding: 20px;
+            color: white;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: #fff;
+            padding: 15px;
+            font-size: 18px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 40px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        /* PRODUCTS */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        .product h3 {
+            font-size: 22px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #ff9900;
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #ff7a00;
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 25px;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    Arenda Tools – Құрылыс құралдарын жалға беру
+</header>
+
+<nav>
+    <a href="#home">Басты бет</a>
+    <a href="#services">Қызметтер</a>
+    <a href="#products">Өнімдер</a>
+    <a href="#contact">Байланыс</a>
+</nav>
+
+<section class="section" id="home">
+    <div class="title">Қош келдіңіз!</div>
+    <p>Біз құрылыс құралдарын тиімді бағамен жалға береміз. Құралдар таза, жұмысқа дайын, кез келген уақытта ала аласыз.</p>
+</section>
+
+<section class="section" id="services">
+    <div class="title">Қызметтер</div>
+    <ul>
+        <li>Әртүрлі құрылыс құралдарын жалға беру</li>
+     
+    </ul>
+</section>
+
+<section class="section" id="products">
+    <div class="title">Өнімдер және бағалар</div>
+
+    <div class="products">
+
+        <!-- PRODUCT 1 -->
+        <div class="product">
+            <img src="https://i.ibb.co/5MZb6JC/perf.jpg">
+            <h3>Перфоратор Bosch 800W</h3>
+            <p>Бағасы: <b>3000 тг / күн</b></p>
+            <label>Күні: <input type="number" id="days1" value="1" min="1" style="width:60px;"></label>
+            <div class="btn" onclick="calc(3000, 'days1')">Жалға алу</div>
+            <p id="result1"></p>
+        </div>
+
+        <!-- PRODUCT 2 -->
+        <div class="product">
+            <img src="https://i.ibb.co/dQTqpjM/beton.jpg">
+            <h3>Бетономешалка 140л</h3>
+            <p>Бағасы: <b>8000 тг / күн</b></p>
+            <label>Күні: <input type="number" id="days2" value="1" min="1" style="width:60px;"></label>
+            <div class="btn" onclick="calc(8000, 'days2')">Жалға алу</div>
+            <p id="result2"></p>
+        </div>
+
+        <!-- PRODUCT 3 -->
+        <div class="product">
+            <img src="https://i.ibb.co/sVpdtts/drill.jpg">
+            <h3>Электр дрель</h3>
+            <p>Бағасы: <b>2000 тг / күн</b></p>
+            <label>Күні: <input type="number" id="days3" value="1" min="1" style="width:60px;"></label>
+            <div class="btn" onclick="calc(2000, 'days3')">Жалға алу</div>
+            <p id="result3"></p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <div class="title">Байланыс</div>
+    <p>📞 Телефон: +7 702 166 5716</p>
+        <p>📞 Телефон: +7 702 807 8385</p>
+    <p>📱 WhatsApp: +7 702 166 5716</p>
+     <p>📱 WhatsApp: +7 702 807 8385</p>
+    <p>📍 Адрес:Астана қаласы</p>
+</section>
+
+<footer>
+    © 2026 Arenda Tools — Барлық құқықтар қорғалған
+</footer>
+
+<script>
+    function calc(price, daysId) {
+        let days = document.getElementById(daysId).value;
+        let total = price * days;
+
+        let resultId = "result" + daysId.replace("days", "");
+        document.getElementById(resultId).innerHTML = 
+            "<b>Жалпы төлем: " + total + " тг</b>";
+    }
+</script>
+
+</body>
+</html>

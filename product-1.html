@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лобзик – AstanaProkat.kz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>AstanaProkat.kz</h1>
+    <a href="index.html">← Артқа қайту</a>
+</header>
+
+<main class="product-page">
+
+    <img src="https://via.placeholder.com/400" alt="Лобзик">
+
+    <h2>Лобзик</h2>
+
+    <p class="price">Бағасы: <b>2000 тг / күн</b></p>
+
+    <label>
+        Күн саны:
+        <input type="number" id="days" value="1" min="1">
+    </label>
+
+    <button onclick="calcPrice(2000)">Жалпы бағаны есептеу</button>
+
+    <p id="total"></p>
+
+    <p class="deposit">⚠ Залог: <b>Удостоверение оставить</b></p>
+
+    <a class="whatsapp"
+       href="https://wa.me/77028078385?text=Сәлем! Лобзикті жалға алғым келеді"
+       target="_blank">
+        WhatsApp арқылы жазу
+    </a>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
