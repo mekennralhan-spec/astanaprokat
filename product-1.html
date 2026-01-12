@@ -2,43 +2,191 @@
 <html lang="kk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Лобзик – AstanaProkat.kz</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(45deg, #ff7b00, #ffbb00);
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 25px;
+        }
+
+        .product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        .price {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .price b {
+            color: #ff7b00;
+        }
+
+        .info {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .calc {
+            margin-top: 20px;
+        }
+
+        .calc input {
+            width: 80px;
+            padding: 8px;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 18px;
+            background: #ff9900;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ff7a00;
+        }
+
+        .total {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .deposit {
+            margin-top: 15px;
+            color: #c0392b;
+            font-weight: bold;
+        }
+
+        .whatsapp {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            background: #25D366;
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .whatsapp:hover {
+            background: #1ebe5d;
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <header>
     <h1>AstanaProkat.kz</h1>
-    <a href="index.html">← Артқа қайту</a>
+    <a href="index.html">← Басты бетке қайту</a>
 </header>
 
-<main class="product-page">
+<div class="container">
+    <div class="product">
 
-    <img src="https://via.placeholder.com/400" alt="Лобзик">
+        <img src="https://via.placeholder.com/600x400" alt="Лобзик">
 
-    <h2>Лобзик</h2>
+        <div>
+            <h2>Лобзик</h2>
 
-    <p class="price">Бағасы: <b>2000 тг / күн</b></p>
+            <p class="price">Бағасы: <b>2000 тг / күн</b></p>
 
-    <label>
-        Күн саны:
-        <input type="number" id="days" value="1" min="1">
-    </label>
+            <div class="info">
+                ✔ Ағаш, фанера кесуге арналған  
+                <br>✔ Жеңіл және ыңғайлы  
+                <br>✔ Үй және құрылыс жұмыстарына
+            </div>
 
-    <button onclick="calcPrice(2000)">Жалпы бағаны есептеу</button>
+            <div class="calc">
+                Күн саны:
+                <input type="number" id="days" value="1" min="1">
+                <br>
+                <button class="btn" onclick="calcPrice(2000)">
+                    Жалпы бағаны есептеу
+                </button>
 
-    <p id="total"></p>
+                <div class="total" id="total"></div>
+            </div>
 
-    <p class="deposit">⚠ Залог: <b>Удостоверение оставить</b></p>
+            <div class="deposit">
+                ⚠ Залог: удостоверение қалдырылады
+            </div>
 
-    <a class="whatsapp"
-       href="https://wa.me/77028078385?text=Сәлем! Лобзикті жалға алғым келеді"
-       target="_blank">
-        WhatsApp арқылы жазу
-    </a>
+            <a class="whatsapp"
+               href="https://wa.me/77028078385?text=Сәлем! Лобзикті жалға алғым келеді"
+               target="_blank">
+                WhatsApp арқылы тапсырыс беру
+            </a>
+        </div>
 
-</main>
+    </div>
+</div>
 
-<script src="script.js"></script>
+<script>
+    function calcPrice(price) {
+        let days = document.getElementById("days").value;
+        let total = price * days;
+
+        document.getElementById("total").innerHTML =
+            "Жалпы төлем: " + total + " тг";
+    }
+</script>
+
 </body>
 </html>
